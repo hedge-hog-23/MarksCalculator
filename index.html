@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal Mark Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color:royalblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div style="max-width: 400px; width: 100%;">
+
+        <h2>Internal Marks @REC</h2>
+
+        <label for="cat1">Enter CAT I mark:</label>
+        <input type="number" id="cat1" required> <br><br>
+
+        <label for="cat2">Enter CAT II mark:</label>
+        <input type="number" id="cat2" required> <br><br>
+
+        <label for="cat3">Enter CAT III mark:</label>
+        <input type="number" id="cat3" required> <br><br>
+
+        <button onclick="calculateInternalMark()">Calculate Internal Mark</button>
+
+    </div>
+
+    <script>
+        function calculateInternalMark() {
+            let ml = parseFloat(document.getElementById("cat1").value);
+            let m2 = parseFloat(document.getElementById("cat2").value);
+            let m3 = parseFloat(document.getElementById("cat3").value);
+
+            let m = (((ml / 60) * 18) + ((m2 / 30) * 9) + ((m3 / 60) * 18) + 5);
+            let s = (50 - m) * 2;
+
+            alert("Your internal mark is: " + m.toFixed(2) + "\n" +"You need to score " + s.toFixed(2) + " out of 100 in semester to pass");
+        }
+    </script>
+
+</body>
+</html>
